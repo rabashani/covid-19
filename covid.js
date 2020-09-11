@@ -143,8 +143,30 @@ const getCovid = async () => {
     continentChart("confirmed");
   };
 
+  // function addData(chart, label, data) {
+  //   chart.data.labels.push(label);
+  //   chart.data.datasets.forEach((dataset) => {
+  //     dataset.data.push(data);
+  //   });
+  //   chart.update();
+  // }
+
+  // function removeData(chart) {
+  //   chart.data.labels.pop();
+  //   chart.data.datasets.forEach((dataset) => {
+  //     dataset.data.pop();
+  //   });
+  //   chart.update();
+  // }
+
   continentChart = (type) => {
     const option = getTypeOfStats(type);
+    if (document.querySelector("#myChart")) {
+      document.querySelector("#myChart").remove();
+      const canvas = document.createElement("canvas");
+      canvas.id = "myChart";
+      document.querySelector(".canvas-container").appendChild(canvas);
+    }
     const ctx = document.getElementById("myChart").getContext("2d");
 
     const chart = new Chart(ctx, {
@@ -162,6 +184,8 @@ const getCovid = async () => {
         ],
       },
     });
+    // removeData(chart);
+    // addData(chart, getCountryNames(), option);
   };
 
   const buttons = document.querySelectorAll("button");
