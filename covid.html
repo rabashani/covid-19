@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .canvas-container {
+      min-height: 71vh;
+    }
+    .options {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hidden {
+      visibility: hidden;
+    }
+    .none {
+      display: none !important;
+    }
+    #none {
+      display: none !important;
+    }
+    .buttons {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .list {
+      margin: 5px;
+      cursor: pointer;
+    }
+    .details {
+      min-height: 71vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .box {
+      padding: 10px;
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1 style="text-align: center">Covid 19 Stats</h1>
+
+      <div class="canvas-container">
+        <canvas id="myChart"></canvas>
+        <div class="details none">
+          <div class="box">
+            <h4>Total cases</h4>
+            <h5 class="total-cases"></h5>
+          </div>
+          <div class="box">
+            <h4>New cases</h4>
+            <h5 class="new-cases"></h5>
+          </div>
+          <div class="box">
+            <h4>Total deaths</h4>
+            <h5 class="total-deaths"></h5>
+          </div>
+          <div class="box">
+            <h4>New deaths</h4>
+            <h5 class="new-deaths"></h5>
+          </div>
+          <div class="box">
+            <h4>Total recovered</h4>
+            <h5 class="total-recovered"></h5>
+          </div>
+          <div class="box">
+            <h4>Critical</h4>
+            <h5 class="critical"></h5>
+          </div>
+        </div>
+      </div>
+      <div class="options hidden">
+        <button data-type="confirmed">Confirmed</button>
+        <button data-type="deaths">Deaths</button>
+        <button data-type="recovered">Recovered</button>
+        <button data-type="critical">Critical</button>
+      </div>
+      <div class="buttons">
+        <button data-continent="asia" class="asia">Asia</button>
+        <button data-continent="europe" class="europe">Europe</button>
+        <button data-continent="africa" class="africa">Africa</button>
+        <button data-continent="americas" class="america">Americas</button>
+        <button data-continent="world">World</button>
+      </div>
+      <div class="countries">
+        <ul></ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script src="./covid.js"></script>
+  </body>
+</html>
